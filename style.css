@@ -24,8 +24,29 @@ body {
     margin: 20px 50px 20px 50px;
 }
 
-.grid {
-    height: 300px;
-    width: 300px;
+.square {
+    background-color: rgb(235, 235, 235);
     border: 1px solid black;
+}
+
+.square-color {
+    background-color: rgb(240, 70, 98);
+    border: 1px solid black;
+}
+
+
+.item {
+    background-color: lawngreen;
+    border: 1px solid rgb(145, 109, 109);
+    padding-top: 8px;
+    text-align: center;
+}
+
+.grid {
+    height: 600px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
+    border: 2px solid black;
 }
