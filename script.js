@@ -58,8 +58,8 @@ function changesizefunc() {
       changeSize();
     } else {
       clearGrid();
-      setGridSize(newSize);
-      fillGrid(newSize);
+      gridSize(newSize);
+      createGrid(newSize);
     }
   }
 }
