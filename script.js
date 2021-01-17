@@ -49,13 +49,13 @@ function reload(e) {
 }
 
 function changesizefunc() {
-    let newSize = prompt("Enter new size");
+  let newSize = prompt("Enter new size");
 
   if (newSize !== null) {
     newSize = parseInt(newSize);
     if (newSize < 1 || newSize > 64 || Number.isNaN(newSize)) {
       alert("Enter a number from 1-64 range");
-      changeSize();
+      changesizefunc();
     } else {
       clearGrid();
       gridSize(newSize);
