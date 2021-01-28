@@ -4,9 +4,13 @@ const grid = document.querySelector('.grid');
 const resetbutton = document.querySelector("#reset-grid")
 const newsquar = document.querySelector(".square")
 const changesize = document.querySelector('#change-size');
+const btncrl = document.querySelectorAll("#btn-clr")
 
 window.addEventListener("load", defaultGrid)
 changesize.addEventListener("click", changesizefunc)
+const reset = resetbutton.addEventListener('click', reload)
+const btncrllisten = btncrl.forEach(btncrllisten => btncrllisten.addEventListener("click", btncrlfunc))
+
 
 function defaultGrid() {
     gridSize(16)
@@ -18,9 +22,9 @@ function defaultGrid() {
 //creategrid
 
 function gridSize(size) {
-    // grid.innerHTML = "";
-    grid.style.setProperty("grid-template-columns",'repeat(${size}, 2fr)')
-    grid.style.setProperty("grid-template-rows",'repeat(${size}, 2fr)')
+    // grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.setProperty("grid-template-columns",`repeat(${size}, 2fr)`)
+    grid.style.setProperty("grid-template-rows",`repeat(${size}, 2fr)`)
 }
 
 function createGrid(size) {
@@ -42,10 +46,13 @@ function changeColor(e) {
     e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
-reset = resetbutton.addEventListener('click', reload)
 
 function reload(e) {
     window.location.reload()
+}
+
+function btncrlfunc(e) {
+  console.log(e)
 }
 
 function changesizefunc() {

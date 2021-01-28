@@ -59,6 +59,12 @@ body {
     border-radius: 4px;
 }
 
+#btn-clr{
+    margin: 20px;
+    width: 100px;
+}
+
+
 /* 
 display: grid;
   max-width: 500px;
