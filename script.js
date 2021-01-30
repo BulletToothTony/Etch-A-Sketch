@@ -11,6 +11,45 @@ changesize.addEventListener("click", changesizefunc)
 const reset = resetbutton.addEventListener('click', reload)
 const btncrllisten = btncrl.forEach(btncrllisten => btncrllisten.addEventListener("click", btncrlfunc))
 
+function btncrlfunc(e) {
+  console.log(e.target.innerHTML)
+  if (e.target.innerHTML == "Black") {
+    console.log("Black Selected")
+    return "blackk";
+  } else if (e.target.innerHTML == "Gray") {
+    console.log("Gray Selected")
+  } else if (e.target.innerHTML == "Rainbow") {
+    console.log("Rainbow Selected")
+    return "rainboww"
+  } else if (e.target.innerHTML == "Eraser") {
+    console.log("Eraser Selected")
+  }
+}
+
+function changeColor(col) {
+  // if (e == "Black") {
+  //   e.target.style.backgroundColor = rgb(0, 0, 0)
+  // }
+  // console.log(e)
+  const Blackcol = `rgb(${0}, ${0}, ${0})`
+  const Gray = `rgba(${0}, ${0}, ${0}, ${0.5})`
+  let r = Math.floor(Math.random() * 256)
+  let g = Math.floor(Math.random() * 256)
+  let b = Math.floor(Math.random() * 256)
+  const Rainbow = `rgb(${r}, ${g}, ${b})`
+  console.log(r, g, b)
+
+  if (btncrlfunc == "blackk") {
+    col.target.style.backgroundColor = Blackcol
+    console.log("BlackCOL")
+  } else if (btncrlfunc == "rainboww") {
+    col.target.style.backgroundColor = Rainbow
+    console.log("Rainbowwww")
+  }
+  col.target.style.backgroundColor = Rainbow
+}
+
+
 
 function defaultGrid() {
     gridSize(16)
@@ -37,23 +76,12 @@ function createGrid(size) {
     }
 };
 
-function changeColor(e) {
-    // console.log(e)
-    let r = Math.floor(Math.random() * 256)
-    let g = Math.floor(Math.random() * 256)
-    let b = Math.floor(Math.random() * 256)
-    console.log(r, g, b)
-    e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-}
-
 
 function reload(e) {
     window.location.reload()
 }
 
-function btncrlfunc(e) {
-  console.log(e)
-}
+
 
 function changesizefunc() {
   let newSize = prompt("Enter new size");
