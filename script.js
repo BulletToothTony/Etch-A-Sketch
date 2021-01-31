@@ -10,43 +10,62 @@ window.addEventListener("load", defaultGrid)
 changesize.addEventListener("click", changesizefunc)
 const reset = resetbutton.addEventListener('click', reload)
 const btncrllisten = btncrl.forEach(btncrllisten => btncrllisten.addEventListener("click", btncrlfunc))
+let color = 'rainbow'
+console.log(color)
 
 function btncrlfunc(e) {
+  console.log("triggers clrfunc")
+  // console.log(e)
   console.log(e.target.innerHTML)
   if (e.target.innerHTML == "Black") {
     console.log("Black Selected")
-    return "blackk";
+    color = 'black'
+    console.log(color)
   } else if (e.target.innerHTML == "Gray") {
     console.log("Gray Selected")
+    color = 'gray'
   } else if (e.target.innerHTML == "Rainbow") {
     console.log("Rainbow Selected")
-    return "rainboww"
+    color = 'rainbow'
   } else if (e.target.innerHTML == "Eraser") {
     console.log("Eraser Selected")
+    color = 'eraser'
+
   }
 }
 
-function changeColor(col) {
+function changeColor(e) {
   // if (e == "Black") {
   //   e.target.style.backgroundColor = rgb(0, 0, 0)
   // }
-  // console.log(e)
-  const Blackcol = `rgb(${0}, ${0}, ${0})`
-  const Gray = `rgba(${0}, ${0}, ${0}, ${0.5})`
+  const Blackcol = `rgba(${0}, ${0}, ${0}, ${0.9})`
+  const Gray = `rgb(${192}, ${192}, ${192})`
+  const Eraser = `rgb(${235}, ${235}, ${235})`
+  const Red = `rgb(${33}, ${44}, ${235})`
   let r = Math.floor(Math.random() * 256)
   let g = Math.floor(Math.random() * 256)
   let b = Math.floor(Math.random() * 256)
   const Rainbow = `rgb(${r}, ${g}, ${b})`
   console.log(r, g, b)
 
-  if (btncrlfunc == "blackk") {
-    col.target.style.backgroundColor = Blackcol
+  if (color == 'black') {
+    e.target.style.backgroundColor = Blackcol
+    grid.appendChild(Blackcol)
     console.log("BlackCOL")
-  } else if (btncrlfunc == "rainboww") {
-    col.target.style.backgroundColor = Rainbow
+  } else if (color == "rainbow") {
+    e.target.style.backgroundColor = Rainbow
     console.log("Rainbowwww")
+    grid.appendChild(Rainbow)
+  } else if (color == "gray") {
+    e.target.style.backgroundColor = Gray
+    console.log("Rainbowwww")
+    grid.appendChild(Gray)
+  } else if (color == "eraser") {
+    e.target.style.backgroundColor = Eraser
+    console.log("Rainbowwww")
+    grid.appendChild(Eraser)
   }
-  col.target.style.backgroundColor = Rainbow
+  e.target.style.backgroundColor = Rainbow
 }
 
 
@@ -117,3 +136,22 @@ function clearGrid() {
 
 
 //Add event listener to div, change colour
+
+/*
+console.log("colorgrid")
+  switch(color) {
+    case 'rainbow':
+      this.style.backgroundColor = 'red';
+      break;
+    case 'eraser':
+      this.style.backgroundColor = '#ffffff'
+      break;
+    case 'black':
+      this.style.backgroundColor = '#000000'
+      break;
+    case 'gray':
+      this.style.backgroundColor = 'gray';
+      break
+  }
+
+*/
